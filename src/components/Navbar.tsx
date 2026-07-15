@@ -25,20 +25,20 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 overflow-hidden transition-all duration-500 ${
           scrolled
             ? "border-b border-gold/15 bg-ivory/85 py-3 backdrop-blur-xl"
             : "border-b border-transparent py-5"
         }`}
       >
-        <nav className="container-luxe flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <HouseMark className="h-8 w-8 text-gold" />
-            <span className="flex flex-col leading-none">
-              <span className="font-serif text-xl font-medium tracking-wide text-ink">
+        <nav className="container-luxe flex items-center justify-between gap-2">
+          <a href="#top" className="flex min-w-0 shrink items-center gap-2">
+            <HouseMark className="h-7 w-7 shrink-0 text-gold sm:h-8 sm:w-8" />
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="truncate font-serif text-base font-medium tracking-wide text-ink sm:text-xl">
                 Pure Insights
               </span>
-              <span className="mt-0.5 font-sans text-[9px] uppercase tracking-luxe text-bronze">
+              <span className="mt-0.5 font-sans text-[8px] uppercase tracking-luxe text-bronze sm:text-[9px]">
                 Interior · Architecture
               </span>
             </span>
@@ -67,7 +67,7 @@ export function Navbar() {
           <button
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="text-ink lg:hidden"
+            className="ml-2 shrink-0 rounded-md p-1 text-ink lg:hidden"
           >
             <Menu className="h-6 w-6" />
           </button>

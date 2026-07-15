@@ -7,7 +7,7 @@ export function About() {
     <section id="about" className="relative py-24 md:py-32">
       <div className="container-luxe grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Left — imagery */}
-        <div className="relative">
+        <div className="relative pb-12 sm:pb-0">
           <Reveal direction="right">
             <Figure
               src="./images/about-1.jpg"
@@ -18,7 +18,7 @@ export function About() {
             />
           </Reveal>
           <Reveal direction="up" delay={0.2}>
-            <div className="absolute -bottom-10 -right-6 w-40 md:w-52">
+            <div className="absolute -bottom-10 -right-2 w-28 sm:w-40 md:-right-6 md:w-52">
               <Figure
                 src="./images/about-2.jpg"
                 alt="Detail of a Pure Insights interior"

@@ -51,7 +51,7 @@ export function Hero() {
           <span className="eyebrow">Interior Designing & Architecture</span>
         </motion.div>
 
-        <h1 className="mt-6 max-w-4xl font-serif text-[3.4rem] font-medium leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-[6.2rem]">
+        <h1 className="mt-6 max-w-4xl font-serif text-[2.2rem] font-medium leading-[1.05] tracking-tight text-ink xs:text-[2.8rem] sm:text-5xl lg:text-[6.2rem]">
           <Line delay={0.35}>Live the</Line>
           <Line delay={0.5}>
             <span className="text-gold-gradient">Luxury</span> Experience
