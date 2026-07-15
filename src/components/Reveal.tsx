@@ -1,0 +1,83 @@
+import { motion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
+
+type Direction = "up" | "down" | "left" | "right" | "none";
+
+const offset: Record<Direction, { x?: number; y?: number }> = {
+  up: { y: 34 },
+  down: { y: -34 },
+  left: { x: 34 },
+  right: { x: -34 },
+  none: {},
+};
+
+export function Reveal({
+  children,
+  delay = 0,
+  direction = "up",
+  className,
+  once = true,
+}: {
+  children: ReactNode;
+  delay?: number;
+  direction?: Direction;
+  className?: string;
+  once?: boolean;
+}) {
+  const variants: Variants = {
+    hidden: { opacity: 0, ...offset[direction] },
+    show: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  return (
+    <motion.div
+      className={className}
+      variants={variants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once, margin: "-80px" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** Staggered container — children should be <Reveal> or motion items */
+export function StaggerGroup({
+  children,
+  className,
+  stagger = 0.12,
+}: {
+  children: ReactNode;
+  className?: string;
+  stagger?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: stagger } },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
